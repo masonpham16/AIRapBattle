@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rap Battle Simulator</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Rap Battle Simulator</h1>
+      <p class="sub">3 rounds. You decide who wins each round. No mercy.</p>
+    </header>
+
+    <section class="panel">
+      <div class="row">
+        <label>
+          Agent A name
+          <input id="agentA" value="Agent A" />
+        </label>
+        <label>
+          Agent B name
+          <input id="agentB" value="Agent B" />
+        </label>
+      </div>
+
+      <div class="row">
+        <label>
+          API Base URL (your backend)
+          <input id="apiBase" placeholder="https://your-backend.onrender.com" />
+        </label>
+      </div>
+
+      <div class="row actions">
+        <button id="startBtn">Start Battle</button>
+        <button id="resetBtn" class="ghost">Reset</button>
+      </div>
+    </section>
+
+    <section id="battle" class="panel hidden">
+      <div class="scoreboard">
+        <div class="chip"><span id="nameA"></span> score: <strong id="scoreA">0</strong></div>
+        <div class="chip">Round <strong id="roundNum">1</strong> / 3</div>
+        <div class="chip"><span id="nameB"></span> score: <strong id="scoreB">0</strong></div>
+      </div>
+
+      <div class="verses">
+        <article class="verse">
+          <h2 id="labelA">Agent A</h2>
+          <pre id="verseA">—</pre>
+          <button id="voteA">Vote Agent A</button>
+        </article>
+
+        <article class="verse">
+          <h2 id="labelB">Agent B</h2>
+          <pre id="verseB">—</pre>
+          <button id="voteB">Vote Agent B</button>
+        </article>
+      </div>
+
+      <div class="row actions">
+        <button id="nextBtn" class="ghost" disabled>Next Round</button>
+      </div>
+    </section>
+
+    <section id="results" class="panel hidden">
+      <h2>Final Results</h2>
+      <p id="finalText"></p>
+      <div class="row actions">
+        <button id="restartBtn">Battle Again</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Tip: You can deploy this UI on GitHub Pages. Backend must be hosted elsewhere.</small>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
